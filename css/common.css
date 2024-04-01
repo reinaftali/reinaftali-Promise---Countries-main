@@ -307,3 +307,27 @@ body.dark-theme .country-info li {
 body.dark-theme .country-info strong {
   color: white;
 }
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown-header {
+  cursor: pointer;
+}
+
+.dropdown-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none; /* Hide by default */
+}
+
+.dropdown-body.show {
+  display: block; /* Show when toggled */
+}

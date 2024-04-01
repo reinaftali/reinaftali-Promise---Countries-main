@@ -81,15 +81,12 @@
   }
 }
 
-.filters .dropdown-wrapper.open .dropdown-header .icon {
-  transform: rotate(180deg);
+.filters .dropdown-wrapper .dropdown-header .icon {
+  transition: transform 0.2s ease-in-out;
 }
 
-.filters .dropdown-wrapper.open .dropdown-body {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 9;
+.filters .dropdown-wrapper.open .dropdown-header .icon {
+  transform: rotate(180deg);
 }
 
 .filters .dropdown-header,
@@ -110,33 +107,67 @@
   z-index: 2;
 }
 
-.filters .dropdown-header .icon {
-  font-size: 13px;
-  transition: transform 0.2s linear;
-}
-
 .filters .dropdown-body {
   position: absolute;
-  margin-top: 5px;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1;
-  padding: 15px 0;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  visibility:none; /*TODO: test why is not working*/
   transform: translateY(-20px);
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
+  z-index: 1;
 }
 
-.filters .dropdown-body li {
+.filters .dropdown-wrapper.open .dropdown-body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.filters .dropdown-body.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.filters .dropdown-wrapper.open .dropdown-body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.show{
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  width: 250px;
+  height: auto;
+  /* margin-top: 10px; */
+  background-color: white;
+  z-index: 1;
+}
+.filters .dropdown-body.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.filters .dropdown-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filters .dropdown-content li {
   padding: 8px 25px;
   text-transform: capitalize;
   cursor: pointer;
 }
 
-.filters .dropdown-body li:hover {
+.filters .dropdown-content li:hover {
   background-color: #f2f2f2;
-}
-
-.filters .dropdown-body li:last-child {
-  margin-bottom: 0;
 }
 
 .main .container {
